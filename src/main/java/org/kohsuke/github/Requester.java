@@ -301,6 +301,9 @@ class Requester {
         if (root.encodedAuthorization!=null)
             uc.setRequestProperty("Authorization", root.encodedAuthorization);
 
+        // GitHub API v3 requires User-Agent be set
+        uc.setRequestProperty("User-Agent", "org.kohsuke.github");
+
         try {
             uc.setRequestMethod(method);
         } catch (ProtocolException e) {
